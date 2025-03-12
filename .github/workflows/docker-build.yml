@@ -21,3 +21,5 @@ jobs:
           file: Dockerfile
           push: true
           tags: ${{vars.DOCKERHUB_USERNAME}}/cicd:latest
+
+          
