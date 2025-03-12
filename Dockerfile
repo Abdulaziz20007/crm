@@ -1,19 +1,17 @@
-FROM node
+FROM node:20-buster
 
 WORKDIR /app
 
 COPY package.json ./
 
-RUN npm install
+RUN npm install 
 
 COPY . .
 
 RUN npx prisma generate
 
-RUN npx prisma migrate dev --name ok
-
 RUN npm run build
 
 CMD ["node", "dist/main.js"]
 
-EXPOSE 3000
+EXPOSE 3030

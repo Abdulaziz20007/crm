@@ -57,7 +57,10 @@ export class RolesGuard implements CanActivate {
     }
     req.user = user; //eng muhim joyi
 
-    const permission = requiredRoles.some((role) => user.roles.includes(role));
+    console.log(requiredRoles);
+    console.log(user);
+
+    const permission = requiredRoles.some((role) => user.role == role);
     if (!permission) {
       console.log(requiredRoles, user.roles);
 

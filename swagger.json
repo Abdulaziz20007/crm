@@ -2114,11 +2114,6 @@
             "description": "The id of the student",
             "example": 1
           },
-          "payment_type": {
-            "type": "string",
-            "description": "The payment type",
-            "example": "monthly"
-          },
           "amount": {
             "type": "number",
             "description": "The price of the payment",
@@ -2137,7 +2132,6 @@
         },
         "required": [
           "user_id",
-          "payment_type",
           "amount",
           "payment_method_id",
           "transaction_id"
@@ -2150,11 +2144,6 @@
             "type": "number",
             "description": "The id of the student",
             "example": 1
-          },
-          "payment_type": {
-            "type": "string",
-            "description": "The payment type",
-            "example": "monthly"
           },
           "amount": {
             "type": "number",
@@ -2578,7 +2567,7 @@
             "description": "User email"
           },
           "phone": {
-            "type": "number",
+            "type": "string",
             "example": 998901234567,
             "description": "User phone number"
           },
@@ -2679,7 +2668,7 @@
             "description": "User email"
           },
           "phone": {
-            "type": "number",
+            "type": "string",
             "example": 998901234567,
             "description": "User phone number"
           },

@@ -50,11 +50,10 @@ export class UserService {
   async findAll() {
     return this.prisma.user.findMany({
       include: {
-        userRoles: {
-          include: {
-            role: true,
-          },
-        },
+        userRoles: true,
+        // include: {
+        //   role: true,
+        // },
       },
     });
   }
@@ -123,7 +122,7 @@ export class UserService {
     });
   }
 
-  async findByPhone(phone: number) {
+  async findByPhone(phone: string) {
     return this.prisma.user.findUnique({
       where: { phone },
       include: {

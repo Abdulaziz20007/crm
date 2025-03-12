@@ -11,13 +11,14 @@ import { PaymentService } from './payment.service';
 import { CreatePaymentDto } from './dto/create-payment.dto';
 import { UpdatePaymentDto } from './dto/update-payment.dto';
 import { Roles } from '../decorators/roles-auth.decorator';
+import { Public } from '../guards/public.decorator';
 
 @Controller('payment')
 export class PaymentController {
   constructor(private readonly paymentService: PaymentService) {}
 
   @Post()
-  @Roles('ADMIN')
+  @Public()
   create(@Body() createPaymentDto: CreatePaymentDto) {
     return this.paymentService.create(createPaymentDto);
   }

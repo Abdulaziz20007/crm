@@ -8,12 +8,6 @@ export class CreatePaymentDto {
   user_id: number;
 
   @ApiProperty({
-    description: 'The payment type',
-    example: 'monthly',
-  })
-  payment_type: string;
-
-  @ApiProperty({
     description: 'The price of the payment',
     example: 100000,
   })

@@ -18,7 +18,7 @@ model User {
   name          String
   surname       String
   email         String?   @unique
-  phone         BigInt    @unique
+  phone         String    @unique
   password      String
   refreshToken  String?
   is_creator    Boolean?  @default(false)
@@ -36,7 +36,6 @@ model User {
 
   payments            Payment[]
   groupStudents       GroupStudent[]
-  contracts           Contract[]         @relation("StudentContracts")
   attendances         Attendance[]
   studentHomeworks    StudentHomework[]
   groupTeachers       GroupTeacher[]
@@ -60,7 +59,6 @@ model Course {
   updatedAt        DateTime @updatedAt
 
   groups    Group[]
-  contracts Contract[]
 
   @@map("courses")
 }
@@ -85,7 +83,6 @@ model Group {
   groupTeachers GroupTeacher[]
   groupStudents GroupStudent[]
   lessons       Lesson[]
-  contracts     Contract[]
 
   @@map("groups")
 }
@@ -188,24 +185,6 @@ model GroupStudent {
 
   @@unique([group_id, student_id])
   @@map("group_students")
-}
-
-model Contract {
-  id            Int       @id @default(autoincrement())
-  student_id    Int
-  student       User      @relation("StudentContracts", fields: [student_id], references: [id])
-  course_id     Int
-  course        Course    @relation(fields: [course_id], references: [id])
-  group_id      Int
-  group         Group     @relation(fields: [group_id], references: [id])
-  contract_date DateTime
-  admin_id      Int
-  is_signed     Boolean   @default(false)
-  sign_date     DateTime?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
-
-  @@map("contracts")
 }
 
 model Lesson {
