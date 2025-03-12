@@ -20,6 +20,4 @@ jobs:
         with:
           file: Dockerfile
           push: true
-          tags: ${{vars.DOCKERHUB_USERNAME}}/cicd:latest
-
-          
+          tags: ${{vars.DOCKERHUB_USERNAME}}/crm:latest
