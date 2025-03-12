@@ -1875,30 +1875,6 @@
           "UserRole"
         ]
       }
-    },
-    "/api/user-role/assign": {
-      "post": {
-        "operationId": "UserRoleController_assignRoles",
-        "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/AssignRolesDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": ""
-          }
-        },
-        "tags": [
-          "UserRole"
-        ]
-      }
     }
   },
   "info": {
@@ -2671,11 +2647,17 @@
             "type": "string",
             "description": "User password",
             "example": "password123"
+          },
+          "role": {
+            "type": "string",
+            "description": "User role",
+            "example": "ADMIN"
           }
         },
         "required": [
           "id",
-          "password"
+          "password",
+          "role"
         ]
       },
       "UpdateUserDto": {
@@ -2804,31 +2786,6 @@
             "description": "Role ID"
           }
         }
-      },
-      "AssignRolesDto": {
-        "type": "object",
-        "properties": {
-          "userId": {
-            "type": "number",
-            "example": 1,
-            "description": "User ID to assign roles to"
-          },
-          "roleIds": {
-            "example": [
-              1,
-              2
-            ],
-            "description": "Array of role IDs to assign (e.g., [1, 2] for both ADMIN and TEACHER roles)",
-            "type": "array",
-            "items": {
-              "type": "number"
-            }
-          }
-        },
-        "required": [
-          "userId",
-          "roleIds"
-        ]
       }
     }
   }

@@ -17,4 +17,12 @@ export class SigninDto {
   })
   @IsString()
   password: string;
+
+  @ApiProperty({
+    description: 'User role',
+    example: 'ADMIN',
+    required: true,
+  })
+  @IsString()
+  role: string;
 }

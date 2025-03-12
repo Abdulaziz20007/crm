@@ -6,6 +6,7 @@ import {
   Patch,
   Param,
   Delete,
+  Req,
 } from '@nestjs/common';
 import { UserRoleService } from './user-role.service';
 import { CreateUserRoleDto } from './dto/create-user-role.dto';
@@ -13,6 +14,7 @@ import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 import { Roles } from '../decorators/roles-auth.decorator';
 import { AssignRolesDto } from './dto/assign-roles.dto';
 import { Public } from '../guards/public.decorator';
+import { Request } from 'express';
 
 @Controller('user-role')
 export class UserRoleController {
@@ -21,8 +23,11 @@ export class UserRoleController {
   @Post()
   @Roles('ADMIN')
   // @Public()
-  create(@Body() createUserRoleDto: CreateUserRoleDto) {
-    return this.userRoleService.create(createUserRoleDto);
+  create(
+    @Body() createUserRoleDto: CreateUserRoleDto,
+    @Req() request: Request,
+  ) {
+    return this.userRoleService.create(createUserRoleDto, request);
   }
 
   @Get()
@@ -56,11 +61,5 @@ export class UserRoleController {
   @Roles('ADMIN')
   remove(@Param('id') id: string) {
     return this.userRoleService.remove(+id);
-  }
-
-  @Post('assign')
-  @Roles('ADMIN')
-  assignRoles(@Body() assignRolesDto: AssignRolesDto) {
-    return this.userRoleService.assignRoles(assignRolesDto);
   }
 }

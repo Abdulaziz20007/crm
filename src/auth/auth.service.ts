@@ -28,19 +28,12 @@ export class AuthService {
   BCRYPT_ROUND = Number(process.env.BCRYPT_ROUND) || 7;
 
   async getTokens(user: any) {
-    const userRoles = await this.prisma.userRole.findMany({
-      where: { user_id: user.id },
-      include: { role: true },
-    });
-
-    const roleNames = userRoles.map((ur) => ur.role.name);
-
     const payload = {
       id: user.id,
       name: user.name,
       surname: user.surname,
       phone: user.phone ? user.phone.toString() : null,
-      roles: roleNames,
+      role: user.role.toUpperCase(),
     };
 
     const accessToken = await this.jwtService.signAsync(payload, {
@@ -113,19 +106,9 @@ export class AuthService {
       },
     });
 
-    const tokens = await this.getTokens(newUser);
-
-    await this.prisma.user.update({
-      where: { id: newUser.id },
-      data: { refreshToken: tokens.refreshToken },
-    });
-
-    res.cookie('refreshToken', tokens.refreshToken, this.COOKIE_OPTIONS);
-
     return {
       message: 'User muvaffaqiyatli yaratildi',
       userId: newUser.id,
-      accessToken: tokens.accessToken,
     };
   }
 
@@ -145,6 +128,14 @@ export class AuthService {
       throw new UnauthorizedException(`User topilmadi`);
     }
 
+    if (
+      !user.userRoles.some(
+        (x) => x.role.name.toLowerCase() == signinDto.role.toLowerCase(),
+      )
+    ) {
+      throw new UnauthorizedException(`Bu role sizda mavjud emas`);
+    }
+
     const passwordMatches = await bcrypt.compare(
       signinDto.password,
       user.password,
@@ -154,7 +145,11 @@ export class AuthService {
       throw new UnauthorizedException(`Parol noto'g'ri`);
     }
 
-    const tokens = await this.getTokens(user);
+    const { userRoles, ...userData } = user;
+
+    console.log(userData);
+
+    const tokens = await this.getTokens({ ...userData, role: signinDto.role });
 
     await this.prisma.user.update({
       where: { id: user.id },
@@ -201,7 +196,7 @@ export class AuthService {
         throw new UnauthorizedException('Refresh token topilmadi');
       }
 
-      const tokens = await this.getTokens(user);
+      const tokens = await this.getTokens({ ...user, role: decodedToken.role });
 
       const updatedUser = await this.prisma.user.update({
         where: { id: user.id },

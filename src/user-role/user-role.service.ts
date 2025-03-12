@@ -1,14 +1,53 @@
-import { Injectable, NotFoundException } from '@nestjs/common';
+import {
+  Injectable,
+  NotFoundException,
+  UnauthorizedException,
+  ConflictException,
+} from '@nestjs/common';
 import { CreateUserRoleDto } from './dto/create-user-role.dto';
 import { UpdateUserRoleDto } from './dto/update-user-role.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import { AssignRolesDto } from './dto/assign-roles.dto';
+import { Request } from 'express';
+import { User } from '@prisma/client';
 
 @Injectable()
 export class UserRoleService {
   constructor(private prisma: PrismaService) {}
 
-  async create(createUserRoleDto: CreateUserRoleDto) {
+  async create(createUserRoleDto: CreateUserRoleDto, request: Request) {
+    if ('user' in request) {
+      const user = request.user as User;
+      const role = await this.prisma.role.findUnique({
+        where: { id: createUserRoleDto.role_id },
+      });
+
+      if (role?.name === 'ADMIN') {
+        const adminUser = await this.prisma.user.findUnique({
+          where: { id: user.id },
+          include: { userRoles: { include: { role: true } } },
+        });
+
+        const isCreator = adminUser?.is_creator;
+        if (!isCreator) {
+          throw new UnauthorizedException(
+            'Faqat Creator adminlar admin rolini yaratishi mumkin',
+          );
+        }
+      }
+    }
+
+    const existingUserRole = await this.prisma.userRole.findFirst({
+      where: {
+        user_id: createUserRoleDto.user_id,
+        role_id: createUserRoleDto.role_id,
+      },
+    });
+
+    if (existingUserRole) {
+      throw new ConflictException('Userda bu role mavjud');
+    }
+
     return this.prisma.userRole.create({
       data: createUserRoleDto,
     });
@@ -33,7 +72,7 @@ export class UserRoleService {
     });
 
     if (!userRole) {
-      throw new NotFoundException(`UserRole with ID ${id} not found`);
+      throw new NotFoundException(`UserRole ID ${id} topilmadi`);
     }
 
     return userRole;
@@ -46,7 +85,7 @@ export class UserRoleService {
         data: updateUserRoleDto,
       });
     } catch (error) {
-      throw new NotFoundException(`UserRole with ID ${id} not found`);
+      throw new NotFoundException(`UserRole ID ${id} topilmadi`);
     }
   }
 
@@ -56,7 +95,7 @@ export class UserRoleService {
         where: { id },
       });
     } catch (error) {
-      throw new NotFoundException(`UserRole with ID ${id} not found`);
+      throw new NotFoundException(`UserRole ID ${id} topilmadi`);
     }
   }
 
@@ -66,40 +105,6 @@ export class UserRoleService {
       include: {
         role: true,
       },
-    });
-  }
-
-  async assignRoles(assignRolesDto: AssignRolesDto) {
-    const { userId, roleIds } = assignRolesDto;
-
-    const user = await this.prisma.user.findUnique({
-      where: { id: userId },
-    });
-
-    if (!user) {
-      throw new NotFoundException(`User with ID ${userId} not found`);
-    }
-
-    return this.prisma.$transaction(async (prisma) => {
-      await prisma.userRole.deleteMany({
-        where: { user_id: userId },
-      });
-
-      const roleAssignments = await Promise.all(
-        roleIds.map((roleId) =>
-          prisma.userRole.create({
-            data: {
-              user_id: userId,
-              role_id: roleId,
-            },
-            include: {
-              role: true,
-            },
-          }),
-        ),
-      );
-
-      return roleAssignments;
     });
   }
 }

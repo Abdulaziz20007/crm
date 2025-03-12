@@ -3,6 +3,7 @@ import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { PrismaService } from '../prisma/prisma.service';
 import * as bcrypt from 'bcrypt';
+import { Request } from 'express';
 
 @Injectable()
 export class UserService {
@@ -10,7 +11,7 @@ export class UserService {
 
   BCRYPT_ROUND = Number(process.env.BCRYPT_ROUND) || 7;
 
-  async create(createUserDto: CreateUserDto) {
+  async create(createUserDto: CreateUserDto, request: Request) {
     const hashedPassword = await bcrypt.hash(
       createUserDto.password,
       this.BCRYPT_ROUND,
@@ -77,7 +78,7 @@ export class UserService {
     return user;
   }
 
-  async update(id: number, updateUserDto: UpdateUserDto) {
+  async update(id: number, updateUserDto: UpdateUserDto, request: Request) {
     if (updateUserDto.password) {
       updateUserDto.password = await bcrypt.hash(updateUserDto.password, 10);
     }
@@ -99,7 +100,7 @@ export class UserService {
     }
   }
 
-  async remove(id: number) {
+  async remove(id: number, request: Request) {
     try {
       return await this.prisma.user.delete({
         where: { id },

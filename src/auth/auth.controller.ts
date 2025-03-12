@@ -34,7 +34,7 @@ export class AuthController {
   @Post('signout')
   @Roles('ADMIN', 'STUDENT', 'TEACHER')
   async signout(
-    @CookieGetter('refresh_token') refreshToken: string,
+    @CookieGetter('refreshToken') refreshToken: string,
     @Res({ passthrough: true }) res: Response,
   ) {
     return this.authService.signout(refreshToken, res);
@@ -43,7 +43,7 @@ export class AuthController {
   @Post('refresh')
   @Public()
   async refresh(
-    @CookieGetter('refresh_token') refreshToken: string,
+    @CookieGetter('refreshToken') refreshToken: string,
     @Res({ passthrough: true }) res: Response,
   ) {
     return this.authService.refreshToken(refreshToken, res);
