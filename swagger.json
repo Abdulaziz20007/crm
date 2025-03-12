@@ -1,0 +1,2835 @@
+{
+  "openapi": "3.0.0",
+  "paths": {
+    "/api/course": {
+      "post": {
+        "operationId": "CourseController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateCourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Course"
+        ]
+      },
+      "get": {
+        "operationId": "CourseController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Course"
+        ]
+      }
+    },
+    "/api/course/{id}": {
+      "get": {
+        "operationId": "CourseController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Course"
+        ]
+      },
+      "patch": {
+        "operationId": "CourseController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateCourseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Course"
+        ]
+      },
+      "delete": {
+        "operationId": "CourseController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Course"
+        ]
+      }
+    },
+    "/api/group": {
+      "post": {
+        "operationId": "GroupController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGroupDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Group"
+        ]
+      },
+      "get": {
+        "operationId": "GroupController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Group"
+        ]
+      }
+    },
+    "/api/group/{id}": {
+      "get": {
+        "operationId": "GroupController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Group"
+        ]
+      },
+      "patch": {
+        "operationId": "GroupController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGroupDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Group"
+        ]
+      },
+      "delete": {
+        "operationId": "GroupController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Group"
+        ]
+      }
+    },
+    "/api/branch": {
+      "post": {
+        "operationId": "BranchController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateBranchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Branch"
+        ]
+      },
+      "get": {
+        "operationId": "BranchController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Branch"
+        ]
+      }
+    },
+    "/api/branch/{id}": {
+      "get": {
+        "operationId": "BranchController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Branch"
+        ]
+      },
+      "patch": {
+        "operationId": "BranchController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateBranchDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Branch"
+        ]
+      },
+      "delete": {
+        "operationId": "BranchController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Branch"
+        ]
+      }
+    },
+    "/api/region": {
+      "post": {
+        "operationId": "RegionController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRegionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      },
+      "get": {
+        "operationId": "RegionController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      }
+    },
+    "/api/region/{id}": {
+      "get": {
+        "operationId": "RegionController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      },
+      "patch": {
+        "operationId": "RegionController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRegionDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      },
+      "delete": {
+        "operationId": "RegionController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Region"
+        ]
+      }
+    },
+    "/api/district": {
+      "post": {
+        "operationId": "DistrictController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateDistrictDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "District"
+        ]
+      },
+      "get": {
+        "operationId": "DistrictController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "District"
+        ]
+      }
+    },
+    "/api/district/{id}": {
+      "get": {
+        "operationId": "DistrictController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "District"
+        ]
+      },
+      "patch": {
+        "operationId": "DistrictController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateDistrictDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "District"
+        ]
+      },
+      "delete": {
+        "operationId": "DistrictController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "District"
+        ]
+      }
+    },
+    "/api/payment": {
+      "post": {
+        "operationId": "PaymentController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      },
+      "get": {
+        "operationId": "PaymentController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
+    "/api/payment/{id}": {
+      "get": {
+        "operationId": "PaymentController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      },
+      "patch": {
+        "operationId": "PaymentController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      },
+      "delete": {
+        "operationId": "PaymentController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Payment"
+        ]
+      }
+    },
+    "/api/payment-method": {
+      "post": {
+        "operationId": "PaymentMethodController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePaymentMethodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "PaymentMethod"
+        ]
+      },
+      "get": {
+        "operationId": "PaymentMethodController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "PaymentMethod"
+        ]
+      }
+    },
+    "/api/payment-method/{id}": {
+      "get": {
+        "operationId": "PaymentMethodController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "PaymentMethod"
+        ]
+      },
+      "patch": {
+        "operationId": "PaymentMethodController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatePaymentMethodDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "PaymentMethod"
+        ]
+      },
+      "delete": {
+        "operationId": "PaymentMethodController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "PaymentMethod"
+        ]
+      }
+    },
+    "/api/group-teacher": {
+      "post": {
+        "operationId": "GroupTeacherController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGroupTeacherDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupTeacher"
+        ]
+      },
+      "get": {
+        "operationId": "GroupTeacherController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupTeacher"
+        ]
+      }
+    },
+    "/api/group-teacher/{id}": {
+      "get": {
+        "operationId": "GroupTeacherController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupTeacher"
+        ]
+      },
+      "patch": {
+        "operationId": "GroupTeacherController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGroupTeacherDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupTeacher"
+        ]
+      },
+      "delete": {
+        "operationId": "GroupTeacherController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupTeacher"
+        ]
+      }
+    },
+    "/api/group-student": {
+      "post": {
+        "operationId": "GroupStudentController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateGroupStudentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupStudent"
+        ]
+      },
+      "get": {
+        "operationId": "GroupStudentController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupStudent"
+        ]
+      }
+    },
+    "/api/group-student/{id}": {
+      "get": {
+        "operationId": "GroupStudentController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupStudent"
+        ]
+      },
+      "patch": {
+        "operationId": "GroupStudentController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateGroupStudentDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupStudent"
+        ]
+      },
+      "delete": {
+        "operationId": "GroupStudentController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "GroupStudent"
+        ]
+      }
+    },
+    "/api/lesson": {
+      "post": {
+        "operationId": "LessonController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateLessonDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Lesson"
+        ]
+      },
+      "get": {
+        "operationId": "LessonController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Lesson"
+        ]
+      }
+    },
+    "/api/lesson/{id}": {
+      "get": {
+        "operationId": "LessonController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Lesson"
+        ]
+      },
+      "patch": {
+        "operationId": "LessonController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateLessonDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Lesson"
+        ]
+      },
+      "delete": {
+        "operationId": "LessonController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Lesson"
+        ]
+      }
+    },
+    "/api/attendance": {
+      "post": {
+        "operationId": "AttendanceController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateAttendanceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Attendance"
+        ]
+      },
+      "get": {
+        "operationId": "AttendanceController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Attendance"
+        ]
+      }
+    },
+    "/api/attendance/{id}": {
+      "get": {
+        "operationId": "AttendanceController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Attendance"
+        ]
+      },
+      "patch": {
+        "operationId": "AttendanceController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateAttendanceDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Attendance"
+        ]
+      },
+      "delete": {
+        "operationId": "AttendanceController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Attendance"
+        ]
+      }
+    },
+    "/api/student-homework": {
+      "post": {
+        "operationId": "StudentHomeworkController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateStudentHomeworkDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "StudentHomework"
+        ]
+      },
+      "get": {
+        "operationId": "StudentHomeworkController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "StudentHomework"
+        ]
+      }
+    },
+    "/api/student-homework/{id}": {
+      "get": {
+        "operationId": "StudentHomeworkController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "StudentHomework"
+        ]
+      },
+      "patch": {
+        "operationId": "StudentHomeworkController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateStudentHomeworkDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "StudentHomework"
+        ]
+      },
+      "delete": {
+        "operationId": "StudentHomeworkController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "StudentHomework"
+        ]
+      }
+    },
+    "/api/homework-result": {
+      "post": {
+        "operationId": "HomeworkResultController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateHomeworkResultDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "HomeworkResult"
+        ]
+      },
+      "get": {
+        "operationId": "HomeworkResultController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "HomeworkResult"
+        ]
+      }
+    },
+    "/api/homework-result/{id}": {
+      "get": {
+        "operationId": "HomeworkResultController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "HomeworkResult"
+        ]
+      },
+      "patch": {
+        "operationId": "HomeworkResultController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateHomeworkResultDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "HomeworkResult"
+        ]
+      },
+      "delete": {
+        "operationId": "HomeworkResultController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "HomeworkResult"
+        ]
+      }
+    },
+    "/api/auth/signup": {
+      "post": {
+        "operationId": "AuthController_signup",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/signin": {
+      "post": {
+        "operationId": "AuthController_signin",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SigninDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/signout": {
+      "post": {
+        "operationId": "AuthController_signout",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/auth/refresh": {
+      "post": {
+        "operationId": "AuthController_refresh",
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Auth"
+        ]
+      }
+    },
+    "/api/user": {
+      "post": {
+        "operationId": "UserController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      },
+      "get": {
+        "operationId": "UserController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/user/{id}": {
+      "get": {
+        "operationId": "UserController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      },
+      "patch": {
+        "operationId": "UserController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      },
+      "delete": {
+        "operationId": "UserController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "User"
+        ]
+      }
+    },
+    "/api/role": {
+      "post": {
+        "operationId": "RoleController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateRoleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      },
+      "get": {
+        "operationId": "RoleController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/api/role/{id}": {
+      "get": {
+        "operationId": "RoleController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      },
+      "patch": {
+        "operationId": "RoleController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateRoleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      },
+      "delete": {
+        "operationId": "RoleController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "Role"
+        ]
+      }
+    },
+    "/api/user-role": {
+      "post": {
+        "operationId": "UserRoleController_create",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateUserRoleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      },
+      "get": {
+        "operationId": "UserRoleController_findAll",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      }
+    },
+    "/api/user-role/{id}": {
+      "get": {
+        "operationId": "UserRoleController_findOne",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      },
+      "patch": {
+        "operationId": "UserRoleController_update",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdateUserRoleDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      },
+      "delete": {
+        "operationId": "UserRoleController_remove",
+        "parameters": [
+          {
+            "name": "id",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      }
+    },
+    "/api/user-role/user/{userId}": {
+      "get": {
+        "operationId": "UserRoleController_findByUserId",
+        "parameters": [
+          {
+            "name": "userId",
+            "required": true,
+            "in": "path",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      }
+    },
+    "/api/user-role/assign": {
+      "post": {
+        "operationId": "UserRoleController_assignRoles",
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AssignRolesDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": ""
+          }
+        },
+        "tags": [
+          "UserRole"
+        ]
+      }
+    }
+  },
+  "info": {
+    "title": "API Documentation",
+    "description": "The API description",
+    "version": "1.0",
+    "contact": {}
+  },
+  "tags": [],
+  "servers": [],
+  "components": {
+    "securitySchemes": {
+      "bearer": {
+        "scheme": "bearer",
+        "bearerFormat": "JWT",
+        "type": "http"
+      }
+    },
+    "schemas": {
+      "CreateCourseDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "Nodejs, React, Nextjs, Typescript",
+            "description": "Course name"
+          },
+          "description": {
+            "type": "string",
+            "example": "Nodejs, React, Nextjs, Typescript",
+            "description": "Course description"
+          },
+          "capacity": {
+            "type": "number",
+            "example": 20,
+            "description": "Maximum number of students"
+          },
+          "duration": {
+            "type": "number",
+            "example": 3,
+            "description": "Course duration in months"
+          },
+          "lesson_quantity": {
+            "type": "number",
+            "example": 36,
+            "description": "Total number of lessons"
+          },
+          "price": {
+            "type": "number",
+            "example": 1000000,
+            "description": "Total course price"
+          },
+          "price_per_lesson": {
+            "type": "number",
+            "example": 30000,
+            "description": "Price per lesson"
+          }
+        },
+        "required": [
+          "name",
+          "description",
+          "capacity",
+          "duration",
+          "lesson_quantity",
+          "price",
+          "price_per_lesson"
+        ]
+      },
+      "UpdateCourseDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateGroupDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "N15",
+            "description": "Group name"
+          },
+          "course_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Course ID"
+          },
+          "lesson_days": {
+            "example": [
+              1,
+              2,
+              3
+            ],
+            "description": "Lesson days (1-7)",
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "lesson_start_time": {
+            "type": "string",
+            "example": "12:00",
+            "description": "Lesson start time"
+          },
+          "lesson_end_time": {
+            "type": "string",
+            "example": "13:00",
+            "description": "Lesson end time"
+          },
+          "start_date": {
+            "type": "string",
+            "example": "2025-11-11",
+            "description": "Start date (YYYY-MM-DD)"
+          },
+          "room": {
+            "type": "string",
+            "example": "Room name",
+            "description": "Room name or number"
+          },
+          "floor": {
+            "type": "number",
+            "example": 2,
+            "description": "Floor number"
+          },
+          "branch_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Branch ID"
+          },
+          "is_active": {
+            "type": "boolean",
+            "example": true,
+            "description": "Is group active"
+          }
+        },
+        "required": [
+          "name",
+          "course_id",
+          "lesson_days",
+          "lesson_start_time",
+          "lesson_end_time",
+          "start_date",
+          "room",
+          "floor",
+          "branch_id",
+          "is_active"
+        ]
+      },
+      "UpdateGroupDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateBranchDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Branch name",
+            "example": "Branch A"
+          },
+          "region_id": {
+            "type": "number",
+            "description": "Region ID",
+            "example": 1
+          },
+          "district_id": {
+            "type": "number",
+            "description": "District ID",
+            "example": 1
+          },
+          "location": {
+            "type": "string",
+            "description": "Location",
+            "example": "40.123456, 71.123456"
+          }
+        },
+        "required": [
+          "name",
+          "region_id",
+          "district_id",
+          "location"
+        ]
+      },
+      "UpdateBranchDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateRegionDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the region",
+            "example": "Toshkent"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "UpdateRegionDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the region",
+            "example": "Toshkent"
+          }
+        }
+      },
+      "CreateDistrictDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "District name",
+            "example": "Toshkent"
+          },
+          "region_id": {
+            "type": "number",
+            "description": "Region ID",
+            "example": 1
+          }
+        },
+        "required": [
+          "name",
+          "region_id"
+        ]
+      },
+      "UpdateDistrictDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreatePaymentDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "number",
+            "description": "The id of the student",
+            "example": 1
+          },
+          "payment_type": {
+            "type": "string",
+            "description": "The payment type",
+            "example": "monthly"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The price of the payment",
+            "example": 100000
+          },
+          "payment_method_id": {
+            "type": "number",
+            "description": "The payment method id",
+            "example": 1
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "The transaction id",
+            "example": "1234567890"
+          }
+        },
+        "required": [
+          "user_id",
+          "payment_type",
+          "amount",
+          "payment_method_id",
+          "transaction_id"
+        ]
+      },
+      "UpdatePaymentDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "number",
+            "description": "The id of the student",
+            "example": 1
+          },
+          "payment_type": {
+            "type": "string",
+            "description": "The payment type",
+            "example": "monthly"
+          },
+          "amount": {
+            "type": "number",
+            "description": "The price of the payment",
+            "example": 100000
+          },
+          "payment_method_id": {
+            "type": "number",
+            "description": "The payment method id",
+            "example": 1
+          },
+          "transaction_id": {
+            "type": "string",
+            "description": "The transaction id",
+            "example": "1234567890"
+          }
+        }
+      },
+      "CreatePaymentMethodDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Name of the payment method",
+            "example": "Uzum"
+          },
+          "url": {
+            "type": "string",
+            "description": "URL for the payment method",
+            "example": "https://example.uz/service-id"
+          }
+        },
+        "required": [
+          "name",
+          "url"
+        ]
+      },
+      "UpdatePaymentMethodDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateGroupTeacherDto": {
+        "type": "object",
+        "properties": {
+          "teacher_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Teacher ID"
+          },
+          "group_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Group ID"
+          },
+          "is_main": {
+            "type": "boolean",
+            "example": true,
+            "description": "Is main teacher"
+          },
+          "duration": {
+            "type": "number",
+            "example": 10,
+            "description": "Duration in weeks/months"
+          },
+          "start_month": {
+            "type": "number",
+            "example": 1,
+            "description": "Start month (1-12)"
+          },
+          "start_time": {
+            "type": "string",
+            "example": "12:00",
+            "description": "Start time"
+          },
+          "end_time": {
+            "type": "string",
+            "example": "13:00",
+            "description": "End time"
+          }
+        },
+        "required": [
+          "teacher_id",
+          "group_id",
+          "is_main",
+          "duration",
+          "start_month",
+          "start_time",
+          "end_time"
+        ]
+      },
+      "UpdateGroupTeacherDto": {
+        "type": "object",
+        "properties": {}
+      },
+      "CreateGroupStudentDto": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "number",
+            "description": "Group ID",
+            "example": 1
+          },
+          "student_id": {
+            "type": "number",
+            "description": "Student ID",
+            "example": 1
+          }
+        },
+        "required": [
+          "group_id",
+          "student_id"
+        ]
+      },
+      "UpdateGroupStudentDto": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "number",
+            "description": "Group ID",
+            "example": 1
+          },
+          "student_id": {
+            "type": "number",
+            "description": "Student ID",
+            "example": 1
+          }
+        }
+      },
+      "CreateLessonDto": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "number",
+            "description": "The id of the group",
+            "example": 1
+          },
+          "teacher_id": {
+            "type": "number",
+            "description": "The id of the teacher",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the lesson",
+            "example": "Lesson 1"
+          },
+          "homework": {
+            "type": "string",
+            "description": "The homework of the lesson",
+            "example": "Homework 1"
+          },
+          "xp": {
+            "type": "number",
+            "description": "The xp of the lesson",
+            "example": 100
+          },
+          "is_exam": {
+            "type": "boolean",
+            "description": "The is_exam of the lesson",
+            "example": true
+          },
+          "start_time": {
+            "type": "string",
+            "description": "The start_time of the lesson",
+            "example": "12:00"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "The end_time of the lesson",
+            "example": "13:00"
+          },
+          "date": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Lesson date",
+            "example": "2023-09-01"
+          },
+          "description": {
+            "type": "string",
+            "description": "Lesson description",
+            "example": "First lesson"
+          }
+        },
+        "required": [
+          "group_id",
+          "teacher_id",
+          "title",
+          "homework",
+          "xp",
+          "is_exam",
+          "start_time",
+          "end_time",
+          "description"
+        ]
+      },
+      "UpdateLessonDto": {
+        "type": "object",
+        "properties": {
+          "group_id": {
+            "type": "number",
+            "description": "The id of the group",
+            "example": 1
+          },
+          "teacher_id": {
+            "type": "number",
+            "description": "The id of the teacher",
+            "example": 1
+          },
+          "title": {
+            "type": "string",
+            "description": "The title of the lesson",
+            "example": "Lesson 1"
+          },
+          "homework": {
+            "type": "string",
+            "description": "The homework of the lesson",
+            "example": "Homework 1"
+          },
+          "xp": {
+            "type": "number",
+            "description": "The xp of the lesson",
+            "example": 100
+          },
+          "is_exam": {
+            "type": "boolean",
+            "description": "The is_exam of the lesson",
+            "example": true
+          },
+          "start_time": {
+            "type": "string",
+            "description": "The start_time of the lesson",
+            "example": "12:00"
+          },
+          "end_time": {
+            "type": "string",
+            "description": "The end_time of the lesson",
+            "example": "13:00"
+          },
+          "date": {
+            "format": "date-time",
+            "type": "string",
+            "description": "Lesson date",
+            "example": "2023-09-01"
+          },
+          "description": {
+            "type": "string",
+            "description": "Lesson description",
+            "example": "First lesson"
+          }
+        }
+      },
+      "CreateAttendanceDto": {
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "type": "number",
+            "description": "Student ID",
+            "example": 1
+          },
+          "lesson_id": {
+            "type": "number",
+            "description": "Lesson ID",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "description": "Attendance date",
+            "example": "2025-11-11"
+          }
+        },
+        "required": [
+          "student_id",
+          "lesson_id"
+        ]
+      },
+      "UpdateAttendanceDto": {
+        "type": "object",
+        "properties": {
+          "student_id": {
+            "type": "number",
+            "description": "Student ID",
+            "example": 1
+          },
+          "lesson_id": {
+            "type": "number",
+            "description": "Lesson ID",
+            "example": 1
+          },
+          "date": {
+            "type": "string",
+            "description": "Attendance date",
+            "example": "2025-11-11"
+          },
+          "is_present": {
+            "type": "boolean",
+            "description": "Is present",
+            "example": true
+          }
+        },
+        "required": [
+          "is_present"
+        ]
+      },
+      "CreateStudentHomeworkDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the student homework",
+            "example": "Homework description"
+          },
+          "student_id": {
+            "type": "number",
+            "description": "Student ID of the student homework",
+            "example": 1
+          },
+          "lesson_id": {
+            "type": "number",
+            "description": "Lesson ID of the student homework",
+            "example": 1
+          }
+        },
+        "required": [
+          "description",
+          "student_id",
+          "lesson_id"
+        ]
+      },
+      "UpdateStudentHomeworkDto": {
+        "type": "object",
+        "properties": {
+          "description": {
+            "type": "string",
+            "description": "Description of the student homework",
+            "example": "Homework description"
+          },
+          "student_id": {
+            "type": "number",
+            "description": "Student ID of the student homework",
+            "example": 1
+          },
+          "lesson_id": {
+            "type": "number",
+            "description": "Lesson ID of the student homework",
+            "example": 1
+          }
+        }
+      },
+      "CreateHomeworkResultDto": {
+        "type": "object",
+        "properties": {
+          "student_homework_id": {
+            "type": "number",
+            "description": "Student homework ID",
+            "example": 1
+          },
+          "teacher_id": {
+            "type": "number",
+            "description": "Teacher ID",
+            "example": 1
+          },
+          "ball": {
+            "type": "number",
+            "description": "Ball (0-100)",
+            "example": 85
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment",
+            "example": "Good work, but needs improvement in..."
+          }
+        },
+        "required": [
+          "student_homework_id",
+          "teacher_id",
+          "ball",
+          "comment"
+        ]
+      },
+      "UpdateHomeworkResultDto": {
+        "type": "object",
+        "properties": {
+          "student_homework_id": {
+            "type": "number",
+            "description": "Student homework ID",
+            "example": 1
+          },
+          "teacher_id": {
+            "type": "number",
+            "description": "Teacher ID",
+            "example": 1
+          },
+          "ball": {
+            "type": "number",
+            "description": "Ball (0-100)",
+            "example": 85
+          },
+          "comment": {
+            "type": "string",
+            "description": "Comment",
+            "example": "Good work, but needs improvement in..."
+          }
+        }
+      },
+      "CreateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John",
+            "description": "User first name"
+          },
+          "surname": {
+            "type": "string",
+            "example": "Doe",
+            "description": "User last name"
+          },
+          "email": {
+            "type": "string",
+            "example": "john.doe@example.com",
+            "description": "User email"
+          },
+          "phone": {
+            "type": "number",
+            "example": 998901234567,
+            "description": "User phone number"
+          },
+          "password": {
+            "type": "string",
+            "example": "password123",
+            "description": "User password"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Male",
+            "description": "User gender"
+          },
+          "xp": {
+            "type": "number",
+            "example": 100,
+            "description": "Experience points"
+          },
+          "is_learning": {
+            "type": "boolean",
+            "example": true,
+            "description": "Is learning"
+          },
+          "district_id": {
+            "type": "number",
+            "example": 1,
+            "description": "District ID"
+          },
+          "job": {
+            "type": "string",
+            "example": "Teacher",
+            "description": "Job title"
+          },
+          "hire_date": {
+            "type": "string",
+            "example": "2024-01-01",
+            "description": "Hire date"
+          },
+          "salary": {
+            "type": "number",
+            "example": 1000,
+            "description": "Salary"
+          },
+          "is_fired": {
+            "type": "boolean",
+            "example": false,
+            "description": "Is fired"
+          }
+        },
+        "required": [
+          "name",
+          "surname",
+          "phone",
+          "password"
+        ]
+      },
+      "SigninDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "description": "User ID",
+            "example": 1
+          },
+          "password": {
+            "type": "string",
+            "description": "User password",
+            "example": "password123"
+          }
+        },
+        "required": [
+          "id",
+          "password"
+        ]
+      },
+      "UpdateUserDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "John",
+            "description": "User first name"
+          },
+          "surname": {
+            "type": "string",
+            "example": "Doe",
+            "description": "User last name"
+          },
+          "email": {
+            "type": "string",
+            "example": "john.doe@example.com",
+            "description": "User email"
+          },
+          "phone": {
+            "type": "number",
+            "example": 998901234567,
+            "description": "User phone number"
+          },
+          "password": {
+            "type": "string",
+            "example": "password123",
+            "description": "User password"
+          },
+          "gender": {
+            "type": "string",
+            "example": "Male",
+            "description": "User gender"
+          },
+          "xp": {
+            "type": "number",
+            "example": 100,
+            "description": "Experience points"
+          },
+          "is_learning": {
+            "type": "boolean",
+            "example": true,
+            "description": "Is learning"
+          },
+          "district_id": {
+            "type": "number",
+            "example": 1,
+            "description": "District ID"
+          },
+          "job": {
+            "type": "string",
+            "example": "Teacher",
+            "description": "Job title"
+          },
+          "hire_date": {
+            "type": "string",
+            "example": "2024-01-01",
+            "description": "Hire date"
+          },
+          "salary": {
+            "type": "number",
+            "example": 1000,
+            "description": "Salary"
+          },
+          "is_fired": {
+            "type": "boolean",
+            "example": false,
+            "description": "Is fired"
+          }
+        }
+      },
+      "CreateRoleDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "ADMIN",
+            "description": "Role name"
+          }
+        },
+        "required": [
+          "name"
+        ]
+      },
+      "UpdateRoleDto": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "example": "ADMIN",
+            "description": "Role name"
+          }
+        }
+      },
+      "CreateUserRoleDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "number",
+            "example": 1,
+            "description": "User ID to assign role to"
+          },
+          "role_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Role ID to assign (e.g., 1 for ADMIN, 2 for TEACHER)"
+          }
+        },
+        "required": [
+          "user_id",
+          "role_id"
+        ]
+      },
+      "UpdateUserRoleDto": {
+        "type": "object",
+        "properties": {
+          "user_id": {
+            "type": "number",
+            "example": 1,
+            "description": "User ID"
+          },
+          "role_id": {
+            "type": "number",
+            "example": 1,
+            "description": "Role ID"
+          }
+        }
+      },
+      "AssignRolesDto": {
+        "type": "object",
+        "properties": {
+          "userId": {
+            "type": "number",
+            "example": 1,
+            "description": "User ID to assign roles to"
+          },
+          "roleIds": {
+            "example": [
+              1,
+              2
+            ],
+            "description": "Array of role IDs to assign (e.g., [1, 2] for both ADMIN and TEACHER roles)",
+            "type": "array",
+            "items": {
+              "type": "number"
+            }
+          }
+        },
+        "required": [
+          "userId",
+          "roleIds"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,302 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id            Int       @id @default(autoincrement())
+  name          String
+  surname       String
+  email         String?   @unique
+  phone         BigInt    @unique
+  password      String
+  refreshToken  String?
+  is_creator    Boolean?  @default(false)
+  gender        String?
+  xp            Int?      @default(0)
+  is_learning   Boolean?  @default(true)
+  district_id   Int?
+  district      District? @relation(fields: [district_id], references: [id])
+  job           String?
+  hire_date     String?
+  salary        Decimal?  @default(0)
+  is_fired      Boolean?  @default(false)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  payments            Payment[]
+  groupStudents       GroupStudent[]
+  contracts           Contract[]         @relation("StudentContracts")
+  attendances         Attendance[]
+  studentHomeworks    StudentHomework[]
+  groupTeachers       GroupTeacher[]
+  lessons             Lesson[]
+  homeworkResults     HomeworkResult[]
+  userRoles           UserRole[]
+
+  @@map("users")
+}
+
+model Course {
+  id               Int      @id @default(autoincrement())
+  name             String
+  description      String
+  capacity         Int
+  duration         Int
+  lesson_quantity  Int
+  price            Decimal
+  price_per_lesson Decimal
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  groups    Group[]
+  contracts Contract[]
+
+  @@map("courses")
+}
+
+model Group {
+  id                Int      @id @default(autoincrement())
+  name              String
+  course_id         Int
+  course            Course   @relation(fields: [course_id], references: [id])
+  lesson_days       Int[]
+  lesson_start_time String
+  lesson_end_time   String
+  start_date        DateTime
+  room              String
+  floor             Int
+  branch_id         Int
+  branch            Branch   @relation(fields: [branch_id], references: [id])
+  is_active         Boolean  @default(true)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  groupTeachers GroupTeacher[]
+  groupStudents GroupStudent[]
+  lessons       Lesson[]
+  contracts     Contract[]
+
+  @@map("groups")
+}
+
+model Branch {
+  id          Int      @id @default(autoincrement())
+  name        String
+  region_id   Int
+  region      Region   @relation(fields: [region_id], references: [id])
+  district_id Int
+  district    District @relation(fields: [district_id], references: [id])
+  location    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  groups Group[]
+
+  @@map("branches")
+}
+
+model Region {
+  id        Int      @id @default(autoincrement())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  branches  Branch[]
+  districts District[]
+}
+
+model District {
+  id        Int      @id @default(autoincrement())
+  name      String
+  region_id Int
+  region    Region   @relation(fields: [region_id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  branches Branch[]
+  users    User[]
+
+  @@map("districts")
+}
+
+model Payment {
+  id                Int           @id @default(autoincrement())
+  user_id          Int
+  user             User          @relation(fields: [user_id], references: [id])
+  amount            Decimal
+  payment_method_id Int
+  paymentMethod     PaymentMethod @relation(fields: [payment_method_id], references: [id])
+  transaction_id    String?
+  lesson_quantity   Int
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@map("payments")
+}
+
+model PaymentMethod {
+  id        Int      @id @default(autoincrement())
+  name      String
+  url       String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  payments Payment[]
+
+  @@map("payment_methods")
+}
+
+model GroupTeacher {
+  id          Int      @id @default(autoincrement())
+  teacher_id  Int
+  teacher     User     @relation(fields: [teacher_id], references: [id])
+  group_id    Int
+  group       Group    @relation(fields: [group_id], references: [id])
+  is_main     Boolean
+  duration    Int
+  start_month Int
+  start_time  String
+  end_time    String
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@unique([teacher_id, group_id])
+  @@map("group_teachers")
+}
+
+model GroupStudent {
+  id                Int      @id @default(autoincrement())
+  group_id          Int
+  group             Group    @relation(fields: [group_id], references: [id])
+  student_id        Int
+  student           User     @relation(fields: [student_id], references: [id])
+  paid_lesson_count Int      @default(0)
+  lesson_count      Int      @default(0)
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+
+  @@unique([group_id, student_id])
+  @@map("group_students")
+}
+
+model Contract {
+  id            Int       @id @default(autoincrement())
+  student_id    Int
+  student       User      @relation("StudentContracts", fields: [student_id], references: [id])
+  course_id     Int
+  course        Course    @relation(fields: [course_id], references: [id])
+  group_id      Int
+  group         Group     @relation(fields: [group_id], references: [id])
+  contract_date DateTime
+  admin_id      Int
+  is_signed     Boolean   @default(false)
+  sign_date     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  @@map("contracts")
+}
+
+model Lesson {
+  id          Int         @id @default(autoincrement())
+  group_id    Int
+  group       Group       @relation(fields: [group_id], references: [id])
+  teacher_id  Int
+  teacher     User        @relation(fields: [teacher_id], references: [id])
+  title       String
+  homework    String?
+  xp          Int
+  is_exam     Boolean     @default(false)
+  start_time  String
+  end_time    String
+  date        DateTime
+  description String?
+  createdAt   DateTime    @default(now())
+  updatedAt   DateTime    @updatedAt
+
+  attendances         Attendance[]
+  studentHomeworks    StudentHomework[]
+  homeworkResults     HomeworkResult[]
+
+  @@map("lessons")
+}
+
+model Attendance {
+  id         Int      @id @default(autoincrement())
+  lesson_id  Int
+  lesson     Lesson   @relation(fields: [lesson_id], references: [id])
+  student_id Int
+  student    User     @relation(fields: [student_id], references: [id])
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@unique([lesson_id, student_id])
+  @@map("attendances")
+}
+
+model StudentHomework {
+  id          Int      @id @default(autoincrement())
+  description String
+  student_id  Int
+  student     User     @relation(fields: [student_id], references: [id])
+  lesson_id   Int
+  lesson      Lesson   @relation(fields: [lesson_id], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  homeworkResults      HomeworkResult[]
+
+  @@map("student_homeworks")
+}
+
+model HomeworkResult {
+  id                  Int             @id @default(autoincrement())
+  student_homework_id Int
+  studentHomework     StudentHomework @relation(fields: [student_homework_id], references: [id])
+  comment             String
+  ball                Int
+  xp                  Int
+  teacher_id          Int
+  teacher             User            @relation(fields: [teacher_id], references: [id])
+  lesson_id           Int?
+  lesson              Lesson?         @relation(fields: [lesson_id], references: [id])
+  createdAt           DateTime        @default(now())
+  updatedAt           DateTime        @updatedAt
+
+  @@map("homework_results")
+}
+
+model Role {
+  id          Int       @id @default(autoincrement())
+  name        String    @unique
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  userRoles   UserRole[]
+
+  @@map("roles")
+}
+
+model UserRole {
+  id        Int      @id @default(autoincrement())
+  user_id   Int
+  user      User     @relation(fields: [user_id], references: [id])
+  role_id   Int
+  role      Role     @relation(fields: [role_id], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([user_id, role_id])
+  @@map("user_roles")
+}
